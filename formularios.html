@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+    <style>
+    /*Código para desativar o redirecionamento da textarea */
+        textarea{
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GET -> permite retirar os dados do formulário e disponibiliza-los na URL da página 
+
+    POST -> permite retirar os dados do formulário e disponibiliza-los em variáveis locais 
+
+    action é utilizado para especificar em qual arquivo ou página será disponibilizados os arquivos do form
+
+    input type= "text" permite colocar uma caixa do tipo texto
+
+            size="" permite espeificar o tamanho da caixa de texto
+
+            maxlength permite especificar o número máximo de caracteres 
+
+    <select> permite criar uma lista de opções
+        <option> é através dela que podemos criar itens dentro da lista
+            <option value = ""> a propriedade value é obrigatória para que o formulário consiga resgatar o valor do item selecionado pelo usuário e dsponibilzar para o Back-end
+
+    <input type="radio". permite criar opções de escolha. 
+                Obs: para configurar o radio fazendo com que permita somente uma escolha , é necessário que eles tenham o mesmo nome. Contudo seus values devem ser diferentes.
+
+-->
+<h1>Formulário de Cadastro</h1>
+    <form name= "frmCadastro" method="GET" action="formularios.html">
+        nome:
+        <input type="text" name="txtNome" size="50" maxlength="50" id=""><br>
+        cidade:
+        <select name="sltCidade" id="">
+            <option value="" selected>Selecione um item</option>
+            <option value="itapevi">Itapevi</option>
+            <option value="jandira">Jandira</option>
+            <option value="barueri">Barueri</option>
+            <option value="carapicuíba">Carapicuíba</option>
+            <option value="osasco">Osasco</option>
+        </select>
+        <br>
+        Sexo:
+        <input type="radio" name="rdoSexo" value="M" checked>Masculino
+        <input type="radio" name="rdoSexo" value="F">Feminino
+        <input type="radio" name="rdoSexo" value="O">Outros <br>
+        Idiomas:
+        <input type="checkbox" name="chkPortugues" value="pt">Português
+        <input type="checkbox" name="chkIngles" value="en">Inglês
+        <input type="checkbox" name="chkItaliano" value="it">Italiano
+        <input type="checkbox" name="chkFrances" value="fr">Francês <br>
+       Observação:
+        <textarea name="txtObs" id="" cols="30" rows="10"></textarea><br>
+
+        <!-- <input type ="submit"> permite retirar os dados através do próprio HTML, fazendo um submit dos dados
+            
+            <input type="button"> só é possível retirar os dados do formulário atráves do JavaScript
+
+            <input type="reset"> Permite limpar todos os elementos do formulário
+        -->
+        <input type="submit" name= "btnSalvar" value="Salvar">
+    </form>
+</body>
+</html>
