@@ -1,3 +1,57 @@
+<?php
+
+    /*
+    Comentário em bloco
+    */
+    //Comentário em linha
+
+    //Comando para escrever um conteúdo na tela
+    // echo('Testando o PHP');
+    //Comando para escrever um conteúdo na tela
+    // print_r('Testando outra forma de escrever');
+
+    //isset() permite verificar a existência de uma variável ou objeto
+    //Verificar se o botão foi clicado e disponibilzado na ação do GET
+    if(isset($_GET['btnSalvar'])){
+
+    
+    //Recuperando dados via GET do formulário
+    
+    $nome = $_GET['txtNome'];
+    $cidade = $_GET['sltCidade'];
+    $sexo = $_GET['rdoSexo'];
+    $obs = $_GET['txtObs'];
+
+    //Foram criadas essas variáveis para resolver o problema de variável indefinida na hora de recupera os dados do checkBox
+    $idiomaPortugues = null;
+    $idiomaIngles = null;
+    $idiomaItaliano = null;
+    $idiomaFrances = null;
+
+    //Verificando os checkBox que foram marcados para poder recuperar seus dados
+    if(isset($_GET['chkPortugues'])){
+        $idiomaPortugues = $_GET['chkPortugues'];
+    }
+    if(isset($_GET['chkIngles'])){
+        $idiomaIngles = $_GET['chkIngles'];
+    }
+    if(isset($_GET['chkItaliano'])){
+        $idiomaItaliano = $_GET['chkItaliano'];
+    }
+    if(isset($_GET['chkFrances'])){
+        $idiomaFrances = $_GET['chkFrances'];
+    }
+    //Escrevendo o conteúdo das variáveis no navegador
+
+    //Concatenação é represantada pelo . 
+    echo($nome . '<br>');
+    echo($cidade. '<br>');
+    echo($sexo. '<br>');
+    echo($idiomaPortugues.' '.$idiomaIngles.' '.$idiomaItaliano.' '.$idiomaFrances. '<br>');
+    echo($obs. '');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -35,7 +89,7 @@
 
 -->
 <h1>Formulário de Cadastro</h1>
-    <form name= "frmCadastro" method="GET" action="formularios.html">
+    <form name= "frmCadastro" method="GET" action="formularios.php">
         nome:
         <input type="text" name="txtNome" size="50" maxlength="50" id=""><br>
         cidade:
@@ -67,6 +121,7 @@
             <input type="reset"> Permite limpar todos os elementos do formulário
         -->
         <input type="submit" name= "btnSalvar" value="Salvar">
+        <input type="reset" name= "btnLimpar" value="Limpar">
     </form>
 </body>
 </html>
